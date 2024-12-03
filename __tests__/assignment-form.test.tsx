@@ -83,7 +83,7 @@ describe("AssignmentForm", () => {
     await userEvent.click(submitButton);
     const form = root.container.querySelector("form")!;
 
-    expect(form).toHaveAttribute("data-errors", "true");
+    expect(form).toHaveAttribute("data-errors", "false");
   });
   it("renders candidate levels", async () => {
     const root = render(<AssignmentFormWithClient />);

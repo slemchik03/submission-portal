@@ -20,11 +20,13 @@ export default function AssignmentFormContent() {
     form: {
       formState: { errors },
       register,
-      setError,
+      resetField,
       setValue,
     },
   } = useAssignmentForm();
   const hasErrors = Object.keys(errors).length > 0;
+  console.log(errors);
+
   return (
     <form
       data-errors={hasErrors}
@@ -85,8 +87,8 @@ export default function AssignmentFormContent() {
         <Select
           {...register("candidate_level")}
           onValueChange={(v) => {
+            resetField("candidate_level", { keepError: false });
             setValue("candidate_level", v as CandidateLevel);
-            setError("candidate_level", {});
           }}
         >
           <SelectTrigger>
